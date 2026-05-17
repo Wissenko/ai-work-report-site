@@ -47,7 +47,8 @@ function normalizeCandidate(file, rawValue) {
     value.startsWith("mailto:") ||
     value.startsWith("tel:") ||
     value.startsWith("data:") ||
-    value.startsWith("javascript:")
+    value.startsWith("javascript:") ||
+    value.startsWith("/_vercel/")
   ) {
     return null;
   }
