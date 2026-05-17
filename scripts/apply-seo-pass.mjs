@@ -328,11 +328,10 @@ function nav(prefix) {
           <span>Your AI Work Plan</span>
         </a>
         <div class="nav-links">
-          <a href="${prefix}samples.html">Sample Report</a>
-          <a href="${prefix}index.html#what-you-get">What You Get</a>
-          <a href="${prefix}index.html#how-it-works">How It Works</a>
-          <a href="${prefix}privacy.html">Privacy</a>
-          <a href="${prefix}index.html#faq">FAQ</a>
+          <a href="${prefix}what-you-get.html">What You Get</a>
+          <a href="${prefix}samples.html">Sample Reports</a>
+          <a href="${prefix}how-it-works.html">How It Works</a>
+          <a href="${prefix}faq.html">FAQ</a>
           <a class="mobile-menu-cta" href="${prefix}index.html#pricing">Get my AI Work Plan — $9.99</a>
         </div>
         <div class="nav-actions">
@@ -355,22 +354,21 @@ function footer(prefix) {
           <p class="powered-note">Interview technology powered by Lemma.</p>
         </div>
         <div class="footer-group">
-          <span>Report</span>
-          <a href="${prefix}samples.html">Sample Report</a>
-          <a href="${prefix}index.html#what-you-get">What You Get</a>
+          <span>Start</span>
+          <a href="${prefix}what-you-get.html">What You Get</a>
+          <a href="${prefix}samples.html">Sample Reports</a>
           <a href="${prefix}index.html#pricing">Get my AI Work Plan</a>
         </div>
         <div class="footer-group">
-          <span>Product</span>
-          <a href="${prefix}index.html#how-it-works">How It Works</a>
-          <a href="${prefix}methodology.html">Methodology</a>
-          <a href="${prefix}privacy.html">Privacy</a>
+          <span>Learn</span>
+          <a href="${prefix}how-it-works.html">How It Works</a>
+          <a href="${prefix}roles/">Role Guides</a>
+          <a href="${prefix}faq.html">FAQ</a>
         </div>
         <div class="footer-group">
-          <span>Examples</span>
-          <a href="${prefix}samples.html">Sample reports</a>
-          <a href="${prefix}roles/ai-for-administrative-assistants/">AI for administrative assistants</a>
-          <a href="${prefix}roles/ai-for-customer-support-reps/">AI for customer support reps</a>
+          <span>Trust</span>
+          <a href="${prefix}methodology.html">Methodology</a>
+          <a href="${prefix}privacy.html">Privacy</a>
         </div>
       </div>
     </footer>`;
@@ -498,7 +496,7 @@ function roleGuideHtml(role) {
             <section class="role-guide-section cta-panel strong">
               <p class="section-label">08 · PERSONAL REPORT</p>
               <h2>Get your personal AI Work Plan</h2>
-              <p>Talk for about 10 minutes and get a report based on your actual tasks, tools, examples, and risk points.</p>
+              <p>Talk for a few minutes and get a report based on your actual tasks, tools, examples, and risk points.</p>
               <a class="button button-blue" href="../../index.html#pricing">Get my AI Work Plan — $9.99</a>
             </section>
           </article>
@@ -570,7 +568,7 @@ async function updateHomepage() {
       "@type": "Product",
       name: "Your AI Work Plan",
       description:
-        "A personal AI work report based on a 10-minute voice interview. The report shows where AI fits your actual job, what to try first, what prompts to use, what to check, and what not to automate yet.",
+        "A personal AI work report based on a short voice interview. The report shows where AI fits your actual job, what to try first, what prompts to use, what to check, and what not to automate yet.",
       brand: { "@type": "Brand", name: "Your AI Work Plan" },
       offers: {
         "@type": "Offer",
@@ -586,7 +584,7 @@ async function updateHomepage() {
     pageHead({
       title: "Your AI Work Plan — Find Where AI Fits Your Job",
       description:
-        "Talk for 10 minutes and get a personal AI Work Plan showing where AI fits your actual job, what to try first, what prompts to use, and what to check yourself.",
+        "Talk for a few minutes and get a personal AI Work Plan showing where AI fits your actual job, what to try first, what prompts to use, and what to check yourself.",
       path: "/",
       imageName: "home",
       schema,

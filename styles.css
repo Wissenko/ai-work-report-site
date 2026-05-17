@@ -105,18 +105,25 @@ li {
 }
 
 .site-header {
-  position: relative;
-  z-index: 10;
-  width: min(100%, 1920px);
+  position: sticky;
+  top: 0;
+  z-index: 80;
+  width: 100%;
   margin: 0 auto;
-  padding: 24px 46px 0;
+  padding: 14px 32px;
+  border-bottom: 1px solid rgba(231, 223, 211, 0.92);
+  background: rgba(251, 250, 247, 0.94);
+  backdrop-filter: blur(16px);
 }
 
 .nav-shell {
+  position: relative;
   display: grid;
   grid-template-columns: minmax(230px, 1fr) auto minmax(230px, 1fr);
   align-items: center;
   gap: 28px;
+  width: min(100%, 1600px);
+  margin: 0 auto;
 }
 
 .brand {
@@ -489,8 +496,9 @@ li {
   margin: 0 auto;
 }
 
-.product-content-report {
-  grid-template-columns: minmax(0, 1fr) 330px;
+.product-content.product-content-report {
+  grid-template-columns: minmax(0, 1fr) 360px;
+  min-height: 0;
 }
 
 .product-content-report .product-report {
@@ -845,6 +853,10 @@ li {
 }
 
 .section-cta.centered {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
   text-align: center;
 }
 
@@ -1167,6 +1179,29 @@ li {
 
 .sample-report-hero p {
   margin-top: 18px;
+}
+
+.sample-report-hero .sample-note {
+  width: min(860px, 100%);
+  margin-top: 24px;
+  padding: 20px 24px;
+  font-size: 18px;
+  line-height: 1.48;
+}
+
+.simple-page-hero {
+  padding-top: 82px;
+}
+
+.split-page-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.72fr);
+  gap: 28px;
+  align-items: start;
+}
+
+.page-steps {
+  margin-top: 0;
 }
 
 .sample-index-grid {
@@ -1936,9 +1971,9 @@ li {
 
   .nav-shell[data-open="true"] .nav-links {
     position: absolute;
-    left: 24px;
-    right: 24px;
-    top: 80px;
+    left: 0;
+    right: 0;
+    top: calc(100% + 14px);
     display: grid;
     justify-content: stretch;
     gap: 0;
@@ -1977,8 +2012,10 @@ li {
 
   .product-content,
   .product-content-report,
+  .product-content.product-content-report,
   .section-heading,
   .split,
+  .split-page-grid,
   .sample-feature,
   .comparison,
   .artifact-grid,
@@ -2052,7 +2089,7 @@ li {
 
 @media (max-width: 700px) {
   .site-header {
-    padding: 18px 20px 0;
+    padding: 12px 16px;
   }
 
   .container,
@@ -2162,6 +2199,11 @@ li {
 
   .sample-report-hero p {
     font-size: 18px;
+  }
+
+  .sample-report-hero .sample-note {
+    padding: 16px;
+    font-size: 16px;
   }
 
   .section-heading {

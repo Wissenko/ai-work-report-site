@@ -1235,11 +1235,10 @@ function nav(prefix) {
           <span>Your AI Work Plan</span>
         </a>
         <div class="nav-links">
-          <a href="${prefix}samples.html">Sample Report</a>
-          <a href="${prefix}index.html#what-you-get">What You Get</a>
-          <a href="${prefix}index.html#how-it-works">How It Works</a>
-          <a href="${prefix}privacy.html">Privacy</a>
-          <a href="${prefix}index.html#faq">FAQ</a>
+          <a href="${prefix}what-you-get.html">What You Get</a>
+          <a href="${prefix}samples.html">Sample Reports</a>
+          <a href="${prefix}how-it-works.html">How It Works</a>
+          <a href="${prefix}faq.html">FAQ</a>
           <a class="mobile-menu-cta" href="${prefix}index.html#pricing">Get my AI Work Plan — $9.99</a>
         </div>
         <div class="nav-actions">
@@ -1413,7 +1412,7 @@ function renderReport(report, prefix) {
     </main>
 
     <div class="sticky-report-cta">
-      <p>Want one for your work?<span>$9.99 — about 10 minutes — report link sent by email</span></p>
+      <p>Want one for your work?<span>$9.99 — a few minutes — report link sent by email</span></p>
       <a class="button button-blue" href="${prefix}index.html#pricing">Get my AI Work Plan — $9.99</a>
     </div>
 
