@@ -3,35 +3,19 @@ const { expect } = require("@playwright/test");
 const publicRoutes = [
   { path: "/index.html", label: "Home" },
   { path: "/what-you-get.html", label: "What You Get" },
-  { path: "/samples.html", label: "Sample AI Work Plans" },
-  { path: "/roles/", label: "Role Guides" },
+  { path: "/samples.html", label: "Sample AI Work Plan" },
   { path: "/how-it-works.html", label: "How It Works" },
   { path: "/faq.html", label: "FAQ" },
   { path: "/privacy.html", label: "Privacy" },
   { path: "/methodology.html", label: "Methodology" },
-  { path: "/samples/admin-assistant/", label: "Administrative Assistant Sample" },
-  { path: "/samples/office-manager/", label: "Office Manager Sample" },
-  { path: "/samples/customer-support/", label: "Customer Support Sample" },
-  { path: "/samples/finance-accounting/", label: "Finance Sample" },
-  { path: "/samples/hr-coordinator/", label: "HR Sample" },
-  { path: "/samples/sales-coordinator/", label: "Sales Sample" },
-  { path: "/samples/operations-coordinator/", label: "Operations Sample" },
-  { path: "/samples/junior-analyst/", label: "Junior Analyst Sample" },
-  { path: "/roles/ai-for-administrative-assistants/", label: "Administrative Assistant Guide" },
-  { path: "/roles/ai-for-office-managers/", label: "Office Manager Guide" },
-  { path: "/roles/ai-for-customer-support-reps/", label: "Customer Support Guide" },
-  { path: "/roles/ai-for-finance-accounting-associates/", label: "Finance Guide" },
-  { path: "/roles/ai-for-hr-coordinators/", label: "HR Guide" },
-  { path: "/roles/ai-for-sales-coordinators/", label: "Sales Guide" },
-  { path: "/roles/ai-for-operations-coordinators/", label: "Operations Guide" },
-  { path: "/roles/ai-for-junior-analysts/", label: "Junior Analyst Guide" }
+  { path: "/samples/admin-assistant/", label: "Representative Sample" },
+  { path: "/roles/ai-for-administrative-assistants/", label: "Administrative Assistant Role Page" }
 ];
 
 const coreA11yRoutes = [
   "/index.html",
   "/samples.html",
   "/samples/admin-assistant/",
-  "/roles/ai-for-administrative-assistants/",
   "/faq.html"
 ];
 

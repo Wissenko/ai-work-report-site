@@ -9,14 +9,14 @@ test.describe("high-value public journeys", () => {
     await expect(page.locator("#pricing")).toBeInViewport();
   });
 
-  test("desktop navigation reaches the sample hub", async ({ page }) => {
+  test("desktop navigation reaches the sample page", async ({ page }) => {
     await page.setViewportSize({ width: 1440, height: 1000 });
     await page.goto("/index.html");
 
-    await page.locator(".nav-links").getByRole("link", { name: "Sample Reports" }).click();
+    await page.locator(".nav-links").getByRole("link", { name: "Sample Report" }).click();
 
     await expect(page).toHaveURL(/\/samples\.html$/);
-    await expect(page.getByRole("heading", { name: "Sample AI Work Plans" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "One representative sample report" })).toBeVisible();
   });
 
   test("mobile menu opens and navigates", async ({ page }) => {
@@ -31,20 +31,22 @@ test.describe("high-value public journeys", () => {
     await expect(menuButton).toHaveAttribute("aria-expanded", "true");
     await expect(page.locator(".nav-shell")).toHaveAttribute("data-open", "true");
 
-    await page.locator(".nav-links").getByRole("link", { name: "Sample Reports" }).click();
+    await page.locator(".nav-links").getByRole("link", { name: "Sample Report" }).click();
 
     await expect(page).toHaveURL(/\/samples\.html$/);
-    await expect(page.getByRole("heading", { name: "Sample AI Work Plans" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "One representative sample report" })).toBeVisible();
   });
 
-  test("sample hub routes to a role-specific sample report", async ({ page }) => {
+  test("sample hub routes role cards to the representative sample report", async ({ page }) => {
     await page.goto("/samples.html");
 
     const officeManagerCard = page.locator(".role-sample-card").filter({ hasText: "Office Manager" });
-    await officeManagerCard.getByRole("link", { name: "View sample report" }).click();
+    await officeManagerCard.getByRole("link", { name: "See the sample report" }).click();
 
-    await expect(page).toHaveURL(/\/samples\/office-manager\/$/);
-    await expect(page.getByRole("heading", { name: "Sample AI Work Plan: Office Manager" })).toBeVisible();
+    await expect(page).toHaveURL(/\/samples\/admin-assistant\/$/);
+    await expect(page.getByRole("heading", {
+      name: "Sample AI Work Plan: Administrative / Executive Assistant"
+    })).toBeVisible();
   });
 
   test("FAQ rows expand and collapse", async ({ page }) => {
@@ -61,10 +63,10 @@ test.describe("high-value public journeys", () => {
     await expect(faqItem).not.toHaveAttribute("open", "");
   });
 
-  test("role guide routes to its matching sample report", async ({ page }) => {
+  test("simplified role page routes to the representative sample report", async ({ page }) => {
     await page.goto("/roles/ai-for-administrative-assistants/");
 
-    await page.getByRole("link", { name: "See the Administrative Assistant sample report" }).first().click();
+    await page.getByRole("link", { name: "See the sample report", exact: true }).click();
 
     await expect(page).toHaveURL(/\/samples\/admin-assistant\/$/);
     await expect(page.getByRole("heading", {

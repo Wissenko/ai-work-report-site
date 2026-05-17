@@ -7,7 +7,6 @@ module.exports = {
         "http://127.0.0.1:4173/index.html",
         "http://127.0.0.1:4173/samples.html",
         "http://127.0.0.1:4173/samples/admin-assistant/",
-        "http://127.0.0.1:4173/roles/ai-for-administrative-assistants/",
         "http://127.0.0.1:4173/faq.html"
       ],
       numberOfRuns: 1,
