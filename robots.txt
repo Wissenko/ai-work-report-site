@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+Disallow: /checkout/
+Disallow: /checkout-success/
+Disallow: /payment-callback/
+Disallow: /report/
+Disallow: /reports/
+Disallow: /api/
+
+Sitemap: https://youraiworkplan.com/sitemap.xml
