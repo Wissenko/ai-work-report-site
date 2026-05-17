@@ -1,0 +1,22 @@
+{
+  "name": "your-ai-work-plan-site",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Static marketing site for Your AI Work Plan.",
+  "scripts": {
+    "serve:test": "http-server . -p 4173 -a 127.0.0.1 -c-1",
+    "lint": "node scripts/check-static-site.mjs",
+    "test:e2e": "playwright test",
+    "test:e2e:ui": "playwright test --ui",
+    "test:e2e:update": "playwright test --update-snapshots",
+    "lhci": "lhci autorun",
+    "qa": "npm run lint && npm run test:e2e",
+    "qa:full": "npm run qa && npm run lhci"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.11.3",
+    "@lhci/cli": "^0.15.1",
+    "@playwright/test": "^1.60.0",
+    "http-server": "^14.1.1"
+  }
+}
