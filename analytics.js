@@ -54,8 +54,16 @@
     return `aiwr:${id}`;
   }
 
+  function isProductionHost(hostname) {
+    return (
+      hostname === "ai-work-report-site.vercel.app" ||
+      hostname === "ai-work-report-site-fathallahwissem-1387s-projects.vercel.app"
+    );
+  }
+
   function environment(hostname) {
     if (hostname === "localhost" || hostname === "127.0.0.1") return "development";
+    if (isProductionHost(hostname)) return "production";
     if (hostname.endsWith(".vercel.app")) return "preview";
 
     return "production";
@@ -68,7 +76,7 @@
       url.searchParams.get("growth_internal") === "1" ||
       hostname === "localhost" ||
       hostname === "127.0.0.1" ||
-      hostname.endsWith(".vercel.app")
+      (hostname.endsWith(".vercel.app") && !isProductionHost(hostname))
     );
   }
 
