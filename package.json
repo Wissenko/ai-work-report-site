@@ -4,6 +4,7 @@
   "private": true,
   "description": "Static marketing site for Your AI Work Plan.",
   "scripts": {
+    "build": "node scripts/build-posthog-config.mjs",
     "serve:test": "http-server . -p 4173 -a 127.0.0.1 -c-1",
     "lint": "node scripts/check-static-site.mjs",
     "test:e2e": "playwright test",
