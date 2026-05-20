@@ -155,13 +155,15 @@
     window.posthog.init(projectToken, {
       api_host: apiHost,
       defaults: "2026-01-30",
-      capture_pageview: "history_change",
+      capture_pageview: false,
       autocapture: false,
       disable_session_recording: true,
+      request_batching: false,
       before_send: enrichEvent
     });
     window.posthog.register(growthProperties());
     trackCtas();
+    window.posthog.capture("$pageview", growthProperties());
   }
 
   const script = document.createElement("script");
