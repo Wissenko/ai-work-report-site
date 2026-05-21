@@ -33,8 +33,9 @@ const visualViewports = [
 ];
 
 async function prepareStablePage(page) {
-  await page.route("https://fonts.gstatic.com/**", (route) => route.abort());
-  await page.route("https://fonts.googleapis.com/**", (route) => route.abort());
+  await page.route("https://fonts.gstatic.com/**", (route) => route.fulfill({ status: 204, body: "" }));
+  await page.route("https://fonts.googleapis.com/**", (route) => route.fulfill({ status: 204, body: "" }));
+  await page.route("**/_vercel/**", (route) => route.fulfill({ status: 204, body: "" }));
 }
 
 async function addStableVisualStyles(page) {

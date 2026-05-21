@@ -77,7 +77,6 @@ function footer(prefix = "./") {
             <span>Your AI Work Plan</span>
           </a>
           <p>Paid personal reports that turn real office work into practical AI work plans.</p>
-          <p class="powered-note">Interview technology powered by Lemma.</p>
         </div>
         <div class="footer-group">
           <span>Start</span>
