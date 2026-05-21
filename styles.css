@@ -1185,12 +1185,6 @@ li {
   font-size: 15px;
 }
 
-.footer-grid .powered-note {
-  margin-top: 10px;
-  color: var(--quiet);
-  font-size: 13px;
-}
-
 .footer-group span {
   color: var(--quiet);
   font-size: 11px;

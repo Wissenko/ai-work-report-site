@@ -84,6 +84,41 @@
     return value.replace(/\s+/g, " ").trim();
   }
 
+  function slugify(value) {
+    return compactText(value)
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "") || "cta";
+  }
+
+  function ctaDestinationId(anchor) {
+    const rawHref = anchor.getAttribute("href") || "";
+
+    try {
+      const target = new URL(rawHref, window.location.href);
+      const targetPath = normalizePath(target.pathname);
+      const targetHash = target.hash ? target.hash.slice(1) : "";
+
+      if (targetPath === normalizePath(window.location.pathname) && targetHash) {
+        return targetHash;
+      }
+
+      return slugify(`${targetPath}${targetHash ? `-${targetHash}` : ""}`);
+    } catch {
+      return slugify(rawHref || "unknown-destination");
+    }
+  }
+
+  function ctaId(anchor) {
+    const currentPath = normalizePath(window.location.pathname);
+    return [
+      sourceAssetId(currentPath),
+      ctaSurface(anchor),
+      ctaDestinationId(anchor),
+      slugify(anchor.textContent || "")
+    ].join(":");
+  }
+
   function growthProperties() {
     const url = new URL(window.location.href);
     const pathname = normalizePath(url.pathname);
@@ -150,9 +185,29 @@
 
       window.posthog.capture("growth_cta_clicked", Object.assign({}, growthProperties(), {
         cta_event: "static_site_cta_click",
+        cta_id: ctaId(anchor),
         cta_text: compactText(anchor.textContent || ""),
         cta_href: anchor.getAttribute("href") || "",
         cta_surface: ctaSurface(anchor)
+      }));
+    });
+  }
+
+  function normalizeDestinationPath(anchor) {
+    const url = new URL(anchor.getAttribute("href") || "", window.location.href);
+    return normalizePath(url.pathname);
+  }
+
+  function trackRoleRouter() {
+    document.addEventListener("click", (event) => {
+      const anchor = event.target.closest(".role-router-link");
+      if (!anchor || !window.posthog) return;
+
+      window.posthog.capture("role_router_clicked", Object.assign({}, growthProperties(), {
+        surface: "homepage_role_router",
+        role_slug: anchor.dataset.roleSlug,
+        destination_path: normalizeDestinationPath(anchor),
+        destination_type: anchor.dataset.destinationType || "sample_report"
       }));
     });
   }
@@ -171,6 +226,7 @@
     });
     window.posthog.register(growthProperties());
     trackCtas();
+    trackRoleRouter();
     window.posthog.capture("$pageview", growthProperties());
   }
 
