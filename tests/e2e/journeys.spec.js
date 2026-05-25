@@ -16,7 +16,7 @@ test.describe("high-value public journeys", () => {
     await page.locator(".nav-links").getByRole("link", { name: "Sample Report" }).click();
 
     await expect(page).toHaveURL(/\/samples\.html$/);
-    await expect(page.getByRole("heading", { name: "One representative sample report" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "See what your AI Work Plan can look like." })).toBeVisible();
   });
 
   test("mobile menu opens and navigates", async ({ page }) => {
@@ -34,14 +34,13 @@ test.describe("high-value public journeys", () => {
     await page.locator(".nav-links").getByRole("link", { name: "Sample Report" }).click();
 
     await expect(page).toHaveURL(/\/samples\.html$/);
-    await expect(page.getByRole("heading", { name: "One representative sample report" })).toBeVisible();
+    await expect(page.getByRole("heading", { name: "See what your AI Work Plan can look like." })).toBeVisible();
   });
 
-  test("sample hub routes role cards to the representative sample report", async ({ page }) => {
+  test("sample hub routes to the representative sample report", async ({ page }) => {
     await page.goto("/samples.html");
 
-    const officeManagerCard = page.locator(".role-sample-card").filter({ hasText: "Office Manager" });
-    await officeManagerCard.getByRole("link", { name: "See the sample report" }).click();
+    await page.getByRole("link", { name: "See the sample report" }).click();
 
     await expect(page).toHaveURL(/\/samples\/admin-assistant\/$/);
     await expect(page.getByRole("heading", {
@@ -52,12 +51,12 @@ test.describe("high-value public journeys", () => {
   test("FAQ rows expand and collapse", async ({ page }) => {
     await page.goto("/faq.html");
 
-    const faqItem = page.locator(".faq-item").filter({ hasText: "What do I get?" });
+    const faqItem = page.locator(".faq-item").filter({ hasText: "When do I pay?" });
     await expect(faqItem).not.toHaveAttribute("open", "");
 
     await faqItem.locator("summary").click();
     await expect(faqItem).toHaveAttribute("open", "");
-    await expect(faqItem).toContainText("where AI fits your work");
+    await expect(faqItem).toContainText("You pay after the interview");
 
     await faqItem.locator("summary").click();
     await expect(faqItem).not.toHaveAttribute("open", "");
